@@ -1,0 +1,15 @@
+
+body {
+            color: yellow;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+}
+
+.main-label {
+            color: cornflowerblue;
+}
