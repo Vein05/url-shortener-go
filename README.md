@@ -1,7 +1,7 @@
 # URL Shortener Service
 This project is a URL shortener service written in Go. It uses the Gin web framework for HTTP handling, MongoDB for storing URLs, and Godotenv for managing environment variables. Currently, it only created 4 characters for the shortened links, but in the future it will accept custom words.
 
-![Logo](/static/images/logo.jpg =400x300)
+<img src="/static/images/logo.jpg" width="400" height="300" alt="Alt Text">
 
 ## Features
 
