@@ -56,11 +56,33 @@ func main() {
 			"newURL": newURL,
 		})
 	})
-	g.Static("/", "./static/")
+	g.GET("/", func(c *gin.Context) {
+		c.File("./static/index.html")
+	})
+	g.GET("/:shorturl", func(c *gin.Context) {
+		handelCustomURL(c, database)
+	})
+
+	g.Static("/static", "./static/")
 	err = g.Run()
 	if err != nil {
 		return
 	}
+
+}
+
+func handelCustomURL(c *gin.Context, database *mongo.Database) {
+	filter := bson.D{{"shorturl", c.Param("shorturl")}}
+	collection := database.Collection("url-list")
+	var result RequestBody
+	err := collection.FindOne(context.TODO(), filter).Decode(&result)
+	if err != nil {
+		c.Redirect(404, "./static/404.html")
+		return
+	}
+	location := result.URL
+	log.Println(location)
+	c.Redirect(http.StatusMovedPermanently, location)
 
 }
 
