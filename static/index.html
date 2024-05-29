@@ -20,6 +20,13 @@
             gap: 10px;
         }
 
+        #logo{
+            height: 300px;
+            width: 300px;
+            border-radius: 100%;
+            background: transparent;
+            mix-blend-mode: multiply;
+        }
         .main-label {
             color: black;
             font-size: 30px;
@@ -59,12 +66,14 @@
     </style>
 </head>
 <body>
+
     <label class="main-label">URL Shortener made in GO by <a href="https://github.com/vein05" style="
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
             "
     >vein05</a></label>
+    <img id="logo" src="../static/images/logo.jpg" alt="Logo"/>
     <form onsubmit="urlSubmit(event)">
         Enter your URL: <label ><input id="url" type="text" value="" autocomplete="off"></label>
         <label><input class = "submit-button" type="submit" value="Generate"></label>
